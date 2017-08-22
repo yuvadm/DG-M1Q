@@ -34,7 +34,7 @@ Edit `/npc/boot.sh` and add `/bin/busybox telnetd` to the top of the file.
 
 Running on an unauthenticated wireless network isn't very smart.
 
-After setting up your network, create a new file `/rom/wpa_supplicant.conf` to match your network configuration, e.g.:
+After setting up your network, edit `/rom/wpa_supplicant0.conf` to match your network configuration, e.g.:
 
 ```
 ctrl_interface=/etc/Wireless
@@ -42,12 +42,6 @@ network={
     ssid="YOURSSID"
     psk="YOURPSK"
 }
-```
-
-Then hook it into `/npc/boot.sh`, add the line:
-
-```
-cp /rom/wpa_supplicant.conf /mnt/ramdisk/wpa_supplicant0.conf
 ```
 
 ### Stream Access
