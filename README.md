@@ -8,6 +8,8 @@ Either way, unacceptable. Here's an alternative way of using this thing.
 
 ## Usage
 
+![](thumb.png)
+
 ### Root Access
 
 1. Setup an **isolated** wireless network called `Free-AP0` with no authentication
@@ -51,6 +53,11 @@ If your network configuration is good to go, you can launch your favorite media 
 ```
 $ vlc rtsp://admin:20160404@192.168.1.99/onvif1
 ```
+
+## Board Pics
+
+ - [front.jpg](front.jpg)
+ - [back.jpg](back.jpg)
 
 ## Logs
 
