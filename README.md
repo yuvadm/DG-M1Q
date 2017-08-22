@@ -1,20 +1,18 @@
 # DG-M1Q
 
-This nice little device can be had for just over $15 (https://www.banggood.com/Digoo-DG-M1Q-960P-2_8mm-Wireless-Mini-WIFI-Night-Vision-Smart-Home-Security-IP-Camera-Onvif-Monitor-p-1123595.html) and while it is quite capable it has some horrible software.
+This nice little IP camera can be had for [just over $15](https://www.banggood.com/Digoo-DG-M1Q-960P-2_8mm-Wireless-Mini-WIFI-Night-Vision-Smart-Home-Security-IP-Camera-Onvif-Monitor-p-1123595.html) and while it is quite capable it has some horrible software and security properties.
 
-Operating it requires connecting to some shady "cloud" service and downloading some apps to your mobile device.
+Operating it requires connecting to some shady "cloud" service and downloading some apps to your mobile device. Why, did you expect anything else?
 
-Unacceptable.
-
-Here's an alternative way of using this thing.
+Either way, unacceptable. Here's an alternative way of using this thing.
 
 ## Usage
 
 ### Root Access
 
-1. Setup an isolated wireless network called `Free-AP0` with no authentication
-2. Device wil connect to it on boot
-3. Hook up to serial UART pins
+1. Setup an **isolated** wireless network called `Free-AP0` with no authentication
+2. Device will connect to it on boot
+3. Hook up to serial UART pins (see PCB pics)
 4. Enjoy root access with lots of crap dumped on screen, not good enough...
 4. Run `/bin/busybox telnetd`
 5. Run `ip a` to get the IP address for the device
@@ -32,7 +30,7 @@ Edit `/npc/boot.sh` and add `/bin/busybox telnetd` to the top of the file.
 
 ### Wireless Network Configuration
 
-Running on an unauthenticated wireless network isn't very smart.
+Running on an unauthenticated wireless network isn't very smart. Do you want your neighbours sniffing into your apartment? Didn't think so.
 
 After setting up your network, edit `/rom/wpa_supplicant0.conf` to match your network configuration, e.g.:
 
@@ -43,6 +41,8 @@ network={
     psk="YOURPSK"
 }
 ```
+
+**For the sake of all that is good, put this device on a separate VLAN/WLAN and firewall that shit off from the outside world.**
 
 ### Stream Access
 
