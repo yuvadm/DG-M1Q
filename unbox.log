@@ -1,0 +1,969 @@
+console init done
+
+
+U-Boot 2012.10 (Sep 29 2006 - 00:20:41) for GK7102 rb jxh42 v1.00 (GOKE)
+
+HAL:  20151223 
+DRAM:  64 MiB
+Flash: support 4X mode read:0xe520f1ff
+16 MiB
+16 MiB
+NAND:  SPINAND MID = 0xff, DID = 0xffff, Data = 0x1ffffff !spinand_board_init[1581]: No support this SPI nand!
+SF: Detected MX25L12845 with page size 256 B, sector size 64 KiB, total size 16 MiB
+In:    serial
+Out:   serial
+Err:   serial
+Net:   arm_freq(600MHz)..............0x112032
+use int MII..............
+gk7101
+Hit any key to stop autoboot:  1  0 
+[PROCESS_SEPARATORS] run sfboot
+[PROCESS_SEPARATORS] setenv bootargs console=${consoledev},${baudrate} noinitrd mem=${mem} rw ${rootfstype} init=linuxrc ip=${ipaddr}:${serverip}:${gatewayip}:${netmask}:${hostname}:${netdev} mac=${ethaddr} phytype=${phytype};sf probe 0 0;sf read ${loadaddr} ${sfkernel} ${filesize}; bootm
+SF: Detected MX25L12845 with page size 256 B, sector size 64 KiB, total size 16 MiB
+put param to memory
+mem size (35)
+bsb size (2)
+
+the kernel image is zImage or Image
+entry = 0xc1000000 
+## Transferring control to Linux (at address c1000000)...
+
+Starting kernel ...
+
+machid = 3988 r2 = 0xc0000100 
+Uncompressing Linux... done, booting the kernel.
+[    0.000000] Booting Linux on physical CPU 0
+[    0.000000] Linux version 3.4.43-gk (user15@ubuntu) (gcc version 4.6.1 (crosstool-NG 1.18.0) ) #56 PREEMPT Fri Sep 29 00:24:56 PDT 2006
+[    0.000000] CPU: ARMv6-compatible processor [410fb767] revision 7 (ARMv7), cr=00c5387d
+[    0.000000] CPU: VIPT aliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine: Goke GK7102 RB_JXH42 board V2.00
+[    0.000000] Memory policy: ECC disabled, Data cache writeback
+[    0.000000] AHB: 0x90000000  0xf2000000  -- 0x1000000
+[    0.000000] APB: 0xa0000000  0xf3000000  -- 0x1000000
+[    0.000000] PPM: 0xc0000000  0xc0000000  -- 0x200000
+[    0.000000] BSB: 0xc2500000  0xf5000000  -- 0x200000
+[    0.000000] DSP: 0xc2700000  0xf6000000  -- 0x1900000
+[    0.000000] hal version = 20151223 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 8890
+[    0.000000] Kernel command line: console=ttySGK0,115200 noinitrd mem=35M rw mtdparts=gk7101_flash:256K(boot),64K(bootenv),2560K(kernel),7168K(rootfs),1024K(rom),5312K(APP) rootfstype=squashfs root=/dev/mtdblock3 init=linuxrc ip=192.168.1.229:192.168.1.225:192.168.1.1:255.255.255.0:"gk7101":eth0 mac=3C:97:0E:XX:XX:XX phytype=0
+[    0.000000] PID hash table entries: 256 (order: -2, 1024 bytes)
+[    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Memory: 35MB = 35MB total
+[    0.000000] Memory: 30760k/30760k available, 5080k reserved, 0K highmem
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000]     DMA     : 0xff600000 - 0xffe00000   (   8 MB)
+[    0.000000]     vmalloc : 0x82800000 - 0xff000000   (1992 MB)
+[    0.000000]     lowmem  : 0x80000000 - 0x82300000   (  35 MB)
+[    0.000000]     modules : 0x7f000000 - 0x80000000   (  16 MB)
+[    0.000000]       .text : 0x80008000 - 0x80413000   (4140 kB)
+[    0.000000]       .init : 0x80413000 - 0x80433000   ( 128 kB)
+[    0.000000]       .data : 0x80434000 - 0x8045cd00   ( 164 kB)
+[    0.000000]        .bss : 0x8045cd24 - 0x8048edf8   ( 201 kB)
+[    0.000000] NR_IRQS:128
+[    0.000000] >> gk7101 init irq vic1...
+[    0.000000] >> gk7101 init irq vic2...
+[    0.000000] gk7101 init vic...
+[    0.000000] mach gk7101 init timer...
+[    0.000000] sched_clock: 32 bits at 100 Hz, resolution 10000000ns, wraps every 4294967286ms
+[    0.000000] Console: colour dummy device 80x30
+[    0.000000] console [ttySGK0] enabled
+[    0.010000] Calibrating delay loop... 597.60 BogoMIPS (lpj=2988032)
+[    0.070000] pid_max: default: 32768 minimum: 301
+[    0.070000] Mount-cache hash table entries: 512
+[    0.080000] CPU: Testing write buffer coherency: ok
+[    0.090000] Setting up static identity map for 0xc0542e30 - 0xc0542e68
+[    0.100000] NET: Registered protocol family 16
+[    0.110000] gk7101 init timer...
+[    0.110000] Init HW timer for DSP communication
+[    0.120000] gk7101 init gpio...
+[    0.120000] gpiochip_add: registered GPIOs 0 to 63 on device: gk7101-gpio0
+[    0.130000] gpio map init...
+[    0.130000] create proc dir
+[    0.140000] gk7101 register devices 8
+[    0.140000] gk7101 register I2C
+[    0.280000] bio: create slab <bio-0> at 0
+[    0.290000] spi spi.0: gk7101 SPI Controller 0 created 
+[    0.290000] spi spi.0: master is unqueued, this is deprecated
+[    0.300000] usbcore: registered new interface driver usbfs
+[    0.310000] usbcore: registered new interface driver hub
+[    0.310000] usbcore: registered new device driver usb
+[    0.320000] i2c regbase: 0xf3003000 
+[    0.320000] i2c i2c.0: i2c irq:registers 9
+[    0.330000] i2c i2c.0: GK7101 I2C[0] adapter[i2c-0] probed!
+[    0.340000] FS-Cache: Loaded
+[    0.340000] CacheFiles: Loaded
+[    0.350000] cfg80211: Calling CRDA to update world regulatory domain
+[    0.360000] gk7101-sd gk7101-sd.0: Slot0 req_size=0x00010000, segs=16, seg_size=0x00010000
+[    0.390000] gk7101-sd gk7101-sd.0: GK7101 SD/MMC[0] has 1 slots @ 46000000Hz, [0x09e130b0:0x00000000]
+[    0.400000] NET: Registered protocol family 2
+[    0.400000] IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.410000] TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.420000] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.430000] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.440000] TCP: reno registered
+[    0.440000] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.450000] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.450000] NET: Registered protocol family 1
+[    0.460000] RPC: Registered named UNIX socket transport module.
+[    0.470000] RPC: Registered udp transport module.
+[    0.470000] RPC: Registered tcp transport module.
+[    0.480000] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.490000] mdma init...
+[    0.490000] mdma request irq: 54 
+[    0.500000] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.500000] NFS: Registering the id_resolver key type
+[    0.510000] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    0.520000] msgmni has been set to 60
+[    0.530000] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[    0.540000] io scheduler noop registered
+[    0.540000] io scheduler deadline registered
+[    0.550000] io scheduler cfq registered (default)
+[    0.550000] uart.0: ttySGK0 at MMIO 0xa0005000 (irq = 31) is a gk7101uart
+[    0.560000] uart.1: ttySGK1 at MMIO 0xa001f000 (irq = 15) is a gk7101uart
+[    0.570000] uart.2: ttySGK2 at MMIO 0xa001e000 (irq = 27) is a gk7101uart
+[    0.590000] brd: module loaded
+[    0.590000] loop: module loaded
+[    0.600000] adc initialized (10:11)
+[    0.600000] slram: not enough parameters.
+[    0.610000] speed_mod is 0
+[    0.610000] support 4X mode read:0xe520f1ff
+[    0.620000] gk7101_flash gk7101_flash.0: MX25L12845 (16384 Kbytes)
+[    0.620000] 6 cmdlinepart partitions found on MTD device gk7101_flash
+[    0.630000] Creating 6 MTD partitions on "gk7101_flash":
+[    0.640000] 0x000000000000-0x000000040000 : "boot"
+[    0.640000] 0x000000040000-0x000000050000 : "bootenv"
+[    0.650000] 0x000000050000-0x0000002d0000 : "kernel"
+[    0.660000] 0x0000002d0000-0x0000009d0000 : "rootfs"
+[    0.660000] 0x0000009d0000-0x000000ad0000 : "rom"
+[    0.670000] 0x000000ad0000-0x000001000000 : "APP"
+[    0.680000] GKETH_init
+[    0.680000] [GKETH_drv_probe] eth_base = 0xf200e000
+[    0.690000] mii id = 0 
+[    0.690000] ###### PHY Reset.1.0.2
+[    0.810000] mdiobus_register: PHY[0] whose id 0x00000000 
+[    0.810000] goke MII Bus: probed
+[    0.820000] gk7101-eth gk7101-eth.0: MAC Address[3e:97:0e:22:e1:14].
+[    0.830000] usbcore: registered new interface driver cdc_wdm
+[    0.830000] usbcore: registered new interface driver libusual
+[    0.840000] musb-hdrc: version 6.0, ?dma?, otg (peripheral+host)
+[    0.850000] musb phy Begin initial sequence ...
+[    1.090000] gk7101 musb init end...
+[    1.100000] musb-hdrc musb-hdrc: MUSB HDRC host driver
+[    1.100000] musb-hdrc musb-hdrc: new USB bus registered, assigned bus number 1
+[    1.110000] vm : ffde0000, phy : c21a0000
+[    1.110000] dma_buf alloc ok!
+[    1.120000] hub 1-0:1.0: USB hub found
+[    1.120000] hub 1-0:1.0: 1 port detected
+[    1.130000] musb-hdrc musb-hdrc: USB Host mode controller at f0006000 using PIO, IRQ 26
+[    1.140000] platform add gk7101 musb...
+[    1.140000] mousedev: PS/2 mouse device common for all mice
+[    1.150000] input: GKInput as /devices/virtual/input/input0
+[    1.160000] Protocol NEC[0]
+[    1.160000] ir request irq: 62 
+[    1.160000] IR Host Controller probed!
+[    1.170000] gk7101 rtc init...
+[    1.170000] rtc base: 0xf2080000 
+[    1.170000] os read tm: t=0 
+[    1.180000] gk7101-rtc gk7101-rtc: rtc core: registered gk7101-rtc as rtc0
+[    1.180000] i2c /dev entries driver
+[    1.190000] gk7101_wdt: GK7101 Watchdog Timer, (c) 2014 Goke Microelectronics
+[    1.200000] [gk7101_wdt_init]: init
+[    1.200000] [gk7101_wdt_probe]: probe
+[    1.200000] [gk7101_wdt_probe]: probe mapped wdt_base=f3006000
+[    1.210000] watchdog inactive, reset disabled, irq disabled
+[    1.220000] IPv4 over IPv4 tunneling driver
+[    1.220000] gre: GRE over IPv4 demultiplexor driver
+[    1.230000] ip_gre: GRE over IPv4 tunneling driver
+[    1.240000] TCP: cubic registered
+[    1.240000] Initializing XFRM netlink socket
+[    1.250000] NET: Registered protocol family 10
+[    1.260000] IPv6 over IPv4 tunneling driver
+[    1.260000] NET: Registered protocol family 17
+[    1.270000] NET: Registered protocol family 15
+[    1.270000] lib80211: common routines for IEEE802.11 drivers
+[    1.280000] Registering the dns_resolver key type
+[    1.280000] VFP support v0.3: implementor 41 architecture 1 part 20 variant b rev 5
+[    1.290000] os read tm: t=0 
+[    1.300000] gk7101-rtc gk7101-rtc: setting system clock to 1970-01-01 00:00:00 UTC (0)
+[    1.310000] net eth0: ###### GKETH_start_hw
+[    1.320000] net eth0: ###### GKETH_phy_start_aneg...
+[    1.320000] ADDRCONF(NETDEV_UP): eth0: link is not ready
+[    1.590000] usb 1-1: new high-speed USB device number 2 using musb-hdrc
+[    3.350000] IP-Config: Complete:
+[    3.350000]      device=eth0, addr=192.168.1.229, mask=255.255.255.0, gw=192.168.1.1
+[    3.360000]      host="gk7101", domain=, nis-domain=(none)
+[    3.360000]      bootserver=192.168.1.225, rootserver=192.168.1.225, rootpath=
+[    3.380000] VFS: Mounted root (squashfs filesystem) readonly on device 31:3.
+[    3.390000] Freeing init memory: 128K
+Starting logging: OK
+Starting mdev...
+Initializing random number generator... read-only file system detected...done
+Starting network...
+ip: RTNETLINK answers: File exists
+[    8.350000] gk_vi_init
+[    8.350000]  request_irq...24 ok-- video_sync
+[    8.350000]  request_irq...59 ok-- video_frame_last_pixel
+[    8.370000]  request_irq...61 ok-- video_frame
+[    8.370000]  gk7101_is_valid_gpio_irq...
+[    8.560000] crypto initialized (10:11)
+[    8.630000] Media driver version (gcc version 4.6.1 (crosstool-NG 1.18.0) (uClibc)) v1.1.2 #svn r8850 Wed Jul 6 17:44:23 CST 2016
+[   11.690000] rtusb init rt2870 --->
+[   11.710000] 
+[   11.710000] 
+[   11.710000] === pAd = 82a82000, size = 1581168 ===
+[   11.710000] 
+[   11.730000] <-- RTMPAllocTxRxRingMemory, Status=0
+[   11.730000] <-- RTMPAllocAdapterBlock, Status=0
+[   11.750000] RTMP_COM_IoctlHandle():pAd->BulkOutEpAddr=0x8
+[   11.750000] RTMP_COM_IoctlHandle():pAd->BulkOutEpAddr=0x4
+[   11.770000] RTMP_COM_IoctlHandle():pAd->BulkOutEpAddr=0x5
+[   11.770000] RTMP_COM_IoctlHandle():pAd->BulkOutEpAddr=0x6
+[   11.790000] RTMP_COM_IoctlHandle():pAd->BulkOutEpAddr=0x7
+[   11.800000] RTMP_COM_IoctlHandle():pAd->BulkOutEpAddr=0x9
+[   11.800000] STA Driver version-JEDI.MP1.mt7601u.v1.5
+[   11.810000] Compile time-Jul 26 2006,19:39:19
+[   11.820000] ==>WaitForAsicReady MAC_CSR0=0x76010500
+[   11.820000] ==>WaitForAsicReady MAC_CSR0=0x76010500
+[   11.830000] NVM is EFUSE
+[   11.830000] Endpoint(8) is for In-band Command
+[   11.840000] Endpoint(4) is for WMM0 AC0
+[   11.840000] Endpoint(5) is for WMM0 AC1
+[   11.850000] Endpoint(6) is for WMM0 AC2
+[   11.850000] Endpoint(7) is for WMM0 AC3
+[   11.860000] Endpoint(9) is for WMM1 AC0
+[   11.860000] Endpoint(84) is for Data-In
+[   11.870000] Endpoint(85) is for Command Rsp
+[   11.870000] 80211> RFICType = 3
+[   11.890000] NumOfChan ===> 58
+[   11.890000] 80211> Number of channel = 0x44
+[   11.890000] 80211> Number of rate = 12
+[   11.900000] 80211> CurTxPower = 0 dBm
+[   11.900000] 80211> TxStream = 0
+[   11.910000] crda> requlation requestion by core: 00
+[   11.930000] 80211> CFG80211_Register
+[   11.930000] MSC msc_proc_create: 82a82000
+[   11.970000] usbcore: registered new interface driver rt2870
+=========================================================================
+ Start startup!
+startup 0 0
+no key detect 
+vStarNpc:
+=========================================================================
+/ # setenv:/usr/bin:/usr/sbin:/bin:/sbin:/patch/bin
+dwGetWatchDogLiveTime = 60
+Language=:
+  0    1    5  
+default Language=0:
+dwGetSensorType dwSensorType=7
+dwGetSensorType dwSensorType=7
+fgCmosTypeInit-142
+dwGetSensorType dwSensorType=7
+dwSetCmosType dwSensorType=7
+[   16.200000] sensor board reset...
+[   16.520000] sensor board reset...
+[   16.920000] write: addr 0x3640 val 0x3
+Certificate: rom file ok, eeprom ok
+info:  RTC has been used before, no need to init it 
+<1>Sun Jan  1 01:01:01 2010
+<3>Fri Jan  1 01:01:01 2010
+>>vVarInit11
+>>vVarInit22
+>>vVarInit33 dwSetWiFiTimer=300
+vMesgQBufInit
+vDevLogQThreadStart star!
+iClientSocketFd = 6
+cEmailAddr[0] is 0xff*************vNetMg_Init******************
+vRtspServderThreadStar star!
+vHandSelectThreadStar star!
+accept ******************
+Disk init
+******dev type:10
+vDiskProc begin
+av_ctl.c:16183(gk_init),gadi_sys_set_log_level return:0  
+GOKE ADI: R(8724) LIBC(uClibc) (gcc version 4.6.1 (crosstool-NG 1.18.0) ) Sat Jun 25 04:57:54 CST 2016
+av_ctl.c:16192(gk_init),gadi_sys_init  return:0  
+vNewIrCutHanldeFun to filter, day
+av_ctl.c:16200(gk_init),gadi_sys_load_firmware  return:0  
+gk_av.c:274(gk_video_init),gadi_vi_init  return:0  
+gk_av.c:277(gk_video_init),gadi_vout_init  return:0  
+gk_av.c:280(gk_video_init),gadi_venc_init  return:0  
+gk_osd_init fgCmosDirNormal
+gk_osd_init fgCmosDirNormal
+gk_osd_init fgCmosDirNormal
+gk_osd_init fgCmosDirNormal
+gk_osd_init fgCmosDirNormal
+gk_osd_init fgCmosDirNormal
+gk_osd_init fgCmosDirNormal
+gk_osd_init fgCmosDirNormal
+gk_osd_init fgCmosDirNormal
+gk_osd_init fgCmosDirNormal
+gk_osd_init fgCmosDirNormal
+gk_osd_init fgCmosDirNormal
+gk_osd_init fgCmosDirNormal
+gk_osd_init fgCmosDirNormal
+gk_osd_init fgCmosDirNormal
+gk_av.c:4279(gk_osd_init),gadi_osd_init return:0 
+gk_av.c:4323(gk_osd_open),gadi_osd_open return:0 
+gk_video_init:289
+Image library versi[   20.150000] [sc1135_set_video_mode 1188] 1
+on (gcc version 4.6.1 (crosstool-NG 1.18.0) (uClibc)) v1.1.2 #svn r9021 Wed Jul 13 15:44:41 CST 2016
+gk_image.c:247(gk_imaging_init),gadi_isp_init return:0 
+dwGetSensorType dwSensorType=7
+gk_video_parse_config_file-dwSensorType=7
+dwGetSensorType dwSensorType=7
+dwGetSensorType dwSensorType=7
+dwGetSensorType dwSensorType=7
+dwGetSensorType dwSensorType=7
+gk_image_parse_config_file-dwSensorType=7
+dwGetSensorType dwSensorType=7
+dwGetSensorType dwSensorType=7
+dwGetSensorType dwSensorType=7
+gk_av.c:347(gk_video_open),gadi_vi_open  return:0  
+gk_av.c:360(gk_video_open),gadi_vout_open  return:0  
+gk_av.c:374(gk_video_open),gadi_venc_open  return:0  
+gk_av.c:381(gk_video_open),gadi_venc_map_bsb  return:0  
+gk_av.c:389(gk_video_open),gadi_venc_map_dsp  return:0  
+gk_video_open:392
+gk_image.c:267(gk_imaging_open),gadi_isp_open return:0 
+gk_av.c:1032(gk_video_set_all_params),before gadi_vi_enable(viHandle,0)  return:0  
+gk_av.c:1040(gk_video_set_all_params),gadi_vi_enable(viHandle,0)  return:0  
+gk_av.c:1050(gk_video_set_all_params),gadi_vout_set_params return:0  
+>>dwCmosReverseSupport22222222222222
+viHandle=26318560,viParamsAdrr=4867732
+[   20.610000] ================> UP : RTMP_SEM_EVENT_WAIT(STA)
+[   20.610000] 1. LDO_CTR0(6c) = a64799, PMU_OCLEVEL c
+[   20.620000] 2. LDO_CTR0(6c) = a6478d, PMU_OCLEVEL 6
+[   20.630000] ==>WaitForAsicReady MAC_CSR0=0x76010500
+[   20.640000] FW Version:0.1.00 Build:7640
+[   20.650000] Build Time:201301040941____
+[   20.650000] ILM Length = 44276(bytes)
+[   20.660000] DLM Length = 0(bytes)
+[   20.660000] Loading FW....
+[   20.710000] RTMP_TimerListAdd: add timer obj 82baa764!
+[   20.720000] RTMP_TimerListAdd: add timer obj 82baa794!
+[   20.730000] RTMP_TimerListAdd: add timer obj 82baa7c4!
+[   20.740000] RTMP_TimerListAdd: add timer obj 82baa734!
+[   20.740000] RTMP_TimerListAdd: add timer obj 82baa6a4!
+[   20.750000] RTMP_TimerListAdd: add timer obj 82baa6d4!
+[   20.760000] RTMP_TimerListAdd: add timer obj 82b3ecdc!
+[   20.760000] RTMP_TimerListAdd: add timer obj 82b2b5d0!
+[   20.770000] RTMP_TimerListAdd: add timer obj 82b2b604!
+[   20.780000] RTMP_TimerListAdd: add timer obj 82b3ed7c!
+[   20.790000] RTMP_TimerListAdd: add timer obj 82b2df80!
+[   20.790000] RTMP_TimerListAdd: add timer obj 82b2d7c0!
+[   20.800000] RTMP_TimerListAdd: add timer obj 82b2df4c!
+[   20.810000] RTMP_TimerListAdd: add timer obj 82b2e29c!
+[   20.810000] RTMP_TimerListAdd: add timer obj 82b2dfb4!
+[   20.820000] RTMP_TimerListAdd: add timer obj 82b2dfe8!
+[   20.830000] RTMP_TimerListAdd: add timer obj 82b2e01c!
+[   20.840000] RTMP_TimerListAdd: add timer obj 82a8640c!
+[   20.840000] RTMP_TimerListAdd: add timer obj 82a85c4c!
+[   20.850000] RTMP_TimerListAdd: add timer obj 82a863d8!
+[   20.860000] RTMP_TimerListAdd: add timer obj 82a86728!
+[   20.860000] RTMP_TimerListAdd: add timer obj 82a8665c!
+[   20.870000] RTMP_TimerListAdd: add timer obj 82abd684!
+[   20.880000] RTMP_TimerListAdd: add timer obj 82abcec4!
+[   20.890000] RTMP_TimerListAdd: add timer obj 82abd650!
+[   20.890000] RTMP_TimerListAdd: add timer obj 82abd9a0!
+[   20.900000] RTMP_TimerListAdd: add timer obj 82abd6b8!
+[   20.910000] RTMP_TimerListAdd: add timer obj 82abd6ec!
+[   20.910000] RTMP_TimerListAdd: add timer obj 82abd720!
+[   20.920000] RTMP_TimerListAdd: add timer obj 82b3ec7c!
+[   20.930000] RTMP_TimerListAdd: add timer obj 82b3ed4c!
+[   20.940000] RTMP_TimerListAdd: add timer obj 82c01d20!
+[   20.940000] RTMP_TimerListAdd: add timer obj 82c01d50!
+[   20.950000] RTMP_TimerListAdd: add timer obj 82c01d80!
+[   20.960000] RTMP_TimerListAdd: add timer obj 82c01db0!
+[   20.960000] RTMP_TimerListAdd: add timer obj 82c01de0!
+[   20.970000] RTMP_TimerListAdd: add timer obj 82c01e14!
+[   20.980000] RTMP_TimerListAdd: add timer obj 82baa704!
+[   20.990000] RTMP_TimerListAdd: add timer obj 82b2a5ec!
+[   20.990000] RTMP_TimerListAdd: add timer obj 82b2a5bc!
+[   21.000000] RTMP_TimerListAdd: add timer obj 82b2a58c!
+[   21.010000] RTMP_TimerListAdd: add timer obj 82b3ecac!
+[   21.010000] P2pGroupTabInit .  
+[   21.020000] P2pScanChannelDefault <=== count = 3, Channels are 1, 6,11 separately   
+[   21.030000] P2pCfgInit:: 
+[   21.030000] ==>WaitForAsicReady MAC_CSR0=0x76010500
+[   21.480000] cfg_mode=9
+[   21.490000] cfg_mode=9
+[   21.490000] wmode_band_equal(): Band Equal!
+[   21.500000] Key1Str is Invalid key length(0) or Type(0)
+[   21.510000] Key2Str is Invalid key length(0) or Type(0)
+[   21.510000] Key3Str is Invalid key length(0) or Type(0)
+[   21.520000] Key4Str is Invalid key length(0) or Type(0)
+[   21.530000] ###### Force at HT20 (BW_20) mode !!! ########
+[   21.550000] 1. Phy Mode = 14
+[   21.550000] 2. Phy Mode = 14
+[   21.560000] NVM is Efuse and its size =1d[1e0-1fc] 
+[   21.570000] ERROR!!! MT7601 E2PROM: WRONG VERSION 0xc, should be 9
+[   21.580000] MT7601_ReadChannelPwr: EEPROM 0xD0 Error! Use Default Target Power = 0x20
+[   21.610000] 3. Phy Mode = 14
+[   21.610000] AntCfgInit: primary/secondary ant 0/1
+[   21.800000] ---> InitFrequencyCalibration
+[   21.800000] InitFrequencyCalibrationMode:Unknow mode = 3
+[   21.810000] InitFrequencyCalibration: frequency offset in the EEPROM = 108(0x6c)
+[   21.820000] <--- InitFrequencyCalibration
+[   21.830000] RTMPSetPhyMode: channel is out of range, use first channel=1 
+[   21.840000] MCS Set = ff 00 00 00 01
+[   21.860000] <==== STA : rt28xx_init, Status=0
+[   21.880000] 80211> re-init bands...
+[   21.880000] 80211> RFICType = 1
+[   21.910000] NumOfChan ===> 14
+[   21.910000] 80211> Number of channel = 0x44
+[   21.910000] 80211> Number of rate = 12
+[   21.940000] 80211> CurTxPower = 0 dBm
+[   21.940000] 80211> TxStream = 1
+[   21.940000] 0x1300 = 00064300
+[   21.960000] RTMPDrvOpen(1):Check if PDMA is idle!
+[   21.980000] RTMPDrvOpen(2):Check if PDMA is idle!
+[   21.980000] <================ UP : RTMP_SEM_EVENT_UP(STA)
+fgEth0Support = 1,fgRa0Support =[   22.000000] net eth0: ###### GKETH_phy_stop
+ 1
+Support eth0!
+[   22.050000] net eth0: ###### GKETH_start_hw
+[   22.060000] net eth0: ###### GKETH_phy_start_aneg...
+[   22.070000] ADDRCONF(NETDEV_UP): eth0: link is not ready
+udhcpc (v1.21.0) started
+Sending discover...
+udhcpc (v1.21.0) started
+Sending discover...
+fgAddLogMesgBodyToQ 1
+timeOut,vTimerSendLogMesgBody 16 bytes
+route: resolving dev
+route: resolving dev
+[   24.760000] fps is 25, support max shutter time is 20480000 curr shutter_time 0
+[   24.920000] mirror_patter 3
+psMesgQBuf->dwMesgID = 0
+Sending discover...
+[   25.260000] fps is 15, support max shutter time is 34133333 curr shutter_time 20480000
+Sending discover...
+
+
+1119(gk_video_set_all_params)gadi_vi_set_params viParams.resoluMode:71, 
+
+
+1121(gk_video_set_all_params)gadi_vi_set_params ,viParams.frameRate:15 
+
+
+1122(gk_video_set_all_params)gadi_vi_set_params bayerPattern:3,mirrorPattern:3 
+gk_av.c:1134(gk_video_set_all_params),gadi_vi_get_resolution  return:0  
+viWidth=1280, viHeight=960
+gk_check_encode_streams_params:1580
+resolution order of streams : 0, 1, 3, 2, 
+gk_av.c:1190[gk_video_set_all_params]
+chansParams.chan1DeintlcForIntlcVin = 0 ; 
+chansParams.chan1Height			 = 960 ; 
+chansParams.chan1Type				 = 1 ; 
+chansParams.chan1Width 			 = 1280 ; 
+chansParams.chan2DeintlcForIntlcVin = 0 ; 
+chansParams.chan2Height			 = 480 ; 
+chansParams.chan2Type				 = 1 ; 
+chansParams.chan2Width 			 = 640 ; 
+chansParams.chan3DeintlcForIntlcVin = 0 ; 
+chansParams.chan3Height			 = 240 ; 
+chansParams.chan3Type				 = 1 ; 
+chansParams.chan3Width 			 = 320 ; 
+chansParams.chan4DeintlcForIntlcVin = 0 ; 
+chansParams.chan4Height			 = 0 ; 
+chansParams.chan4Type				 = 0 ; 
+chansParams.chan4Width 			 = 0 ; 
+chansParams.intlcScan				 = 0 ; 
+gk_av.c:1219(gk_video_set_all_params),gadi_venc_set_channels_params  return:0  
+gk_video_set_h264_param:883,channelID=0,streamID=0
+res width=1280,height=960
+gk_av.c:921[gk_video_set_h264_param]
+streams[0].streamFormat.streamId	 = 0 ;
+streams[0].streamFormat.encodeType = 1 ;
+streams[0].streamFormat.channelId  = 0 ;
+streams[0].streamFormat.flipRotate = 0 ;
+streams[0].streamFormat.width 	 = 1280 ;
+streams[0].streamFormat.height	 = 960 ;
+streams[0].streamFormat.xOffset	 = 0 ;
+streams[0].streamFormat.yOffset	 = 0 ;
+streams[0].streamFormat.fps		 = 15 ;
+streams[0].streamFormat.keepAspRat = 1 ;
+
+streams[0].h264Conf.streamId		 = 0 ;
+streams[0].h264Conf.gopM			 = 1 ;
+streams[0].h264Conf.gopN			 = 50 ;
+streams[0].h264Conf.idrInterval	 = 1 ;
+streams[0].h264Conf.gopModel		 = 0 ;
+streams[0].h264Conf.profile		 = 0 ;
+streams[0].h264Conf.brcMode		 = 1 ;
+streams[0].h264Conf.cbrAvgBps 	 = 1600000 ;
+streams[0].h264Conf.vbrMinbps 	 = 1000000 ;
+streams[0].h264Conf.vbrMaxbps 	 = 1600000 ;
+streams[0].h264Conf.quality		 = 3 ;
+streams[0].h264Conf.qcon			 = 1 ;
+streams[0].h264Conf.qpMinI		 = 24 ;
+streams[0].h264Conf.qpMinP		 = 27 ;
+streams[0].h264Conf.qpIWeight 	 = 2 ;
+streams[0].h264Conf.qpPWeight 	 = 5 ;
+
+streams[0].mjpegConf.streamId 	 = 0 ;
+streams[0].mjpegConf.chromaFormat  = 1 ;
+streams[0].mjpegConf.quality		 = 50 ;
+gk_av.c:978(gk_video_set_h264_param),gadi_venc_set_stream_format  return:0  
+gk_av.c:1003(gk_video_set_h264_param),gadi_venc_set_h264_config  return:0  
+gk_video_set_venc_param 11
+gk_video_set_h264_param:883,channelID=1,streamID=1
+res width=640,height=480
+gk_av.c:921[gk_video_set_h264_param]
+streams[1].streamFormat.streamId	 = 1 ;
+streams[1].streamFormat.encodeType = 1 ;
+streams[1].streamFormat.channelId  = 1 ;
+streams[1].streamFormat.flipRotate = 0 ;
+streams[1].streamFormat.width 	 = 640 ;
+streams[1].streamFormat.height	 = 480 ;
+streams[1].streamFormat.xOffset	 = 0 ;
+streams[1].streamFormat.yOffset	 = 0 ;
+streams[1].streamFormat.fps		 = 15 ;
+streams[1].streamFormat.keepAspRat = 1 ;
+
+streams[1].h264Conf.streamId		 = 1 ;
+streams[1].h264Conf.gopM			 = 1 ;
+streams[1].h264Conf.gopN			 = 50 ;
+streams[1].h264Conf.idrInterval	 = 1 ;
+streams[1].h264Conf.gopModel		 = 0 ;
+streams[1].h264Conf.profile		 = 0 ;
+streams[1].h264Conf.brcMode		 = 1 ;
+streams[1].h264Conf.cbrAvgBps 	 = 800000 ;
+streams[1].h264Conf.vbrMinbps 	 = 512000 ;
+streams[1].h264Conf.vbrMaxbps 	 = 800000 ;
+streams[1].h264Conf.quality		 = 3 ;
+streams[1].h264Conf.qcon			 = 1 ;
+streams[1].h264Conf.qpMinI		 = 17 ;
+streams[1].h264Conf.qpMinP		 = 21 ;
+streams[1].h264Conf.qpIWeight 	 = 3 ;
+streams[1].h264Conf.qpPWeight 	 = 5 ;
+
+streams[1].mjpegConf.streamId 	 = 1 ;
+streams[1].mjpegConf.chromaFormat  = 1 ;
+streams[1].mjpegConf.quality		 = 50 ;
+gk_av.c:978(gk_video_set_h264_param),gadi_venc_set_stream_format  return:0  
+gk[   26.930000] win_height:0 win_width:0
+_av.c:1003(gk_vi[   26.930000] win_height:0 win_width:0
+deo_set_h264_param),gadi_venc_set_h264_config  return:0  
+gk_video_set_venc_param 11
+gk_video_set_h264_param:883,channelID=2,streamID=2
+res width=320,height=240
+gk_av.c:921[gk_video_set_h264_param]
+streams[2].streamFormat.streamId	 = 2 ;
+streams[2].streamFormat.encodeType = 1 ;
+streams[2].streamFormat.channelId  = 2 ;
+streams[2].streamFormat.flipRotate = 0 ;
+streams[2].streamFormat.width 	 = 320 ;
+streams[2].streamFormat.height	 = 240 ;
+streams[2].streamFormat.xOffset	 = 0 ;
+streams[2].streamFormat.yOffset	 = 0 ;
+streams[2].streamFormat.fps		 = 15 ;
+streams[2].streamFormat.keepAspRat = 1 ;
+
+streams[2].h264Conf.streamId		 = 2 ;
+streams[2].h264Conf.gopM			 = 1 ;
+streams[2].h264Conf.gopN			 = 50 ;
+streams[2].h264Conf.idrInterval	 = 1 ;
+streams[2].h264Conf.gopModel		 = 0 ;
+streams[2].h264Conf.profile		 = 0 ;
+streams[2].h264Conf.brcMode		 = 1 ;
+streams[2].h264Conf.cbrAvgBps 	 = 50000 ;
+streams[2].h264Conf.vbrMinbps 	 = 10000 ;
+streams[2].h264Conf.vbrMaxbps 	 = 80000 ;
+streams[2].h264Conf.quality		 = 3 ;
+streams[2].h264Conf.qcon			 = 1 ;
+streams[2].h264Conf.qpMinI		 = 21 ;
+streams[2].h264Conf.qpMinP		 = 24 ;
+streams[2].h264Conf.qpIWeight 	 = 3 ;
+streams[2].h264Conf.qpPWeight 	 = 5 ;
+
+streams[2].mjpegConf.streamId 	 = 2 ;
+streams[2].mjpegConf.chromaFormat  = 0 ;
+streams[2].mjpegConf.quality		 = 5 ;
+gk_av.c:978(gk_video_set_h264_param),gadi_venc_set_stream_format  return:0  
+gk_av.c:1003(gk_video_set_h264_param),gadi_venc_set_h264_config  return:0  
+gk_video_set_venc_param 11
+gk_av.c:734[gk_video_set_mjpeg_param]
+streams[3].streamFormat.streamId	 = 3 ;
+streams[3].streamFormat.encodeType = 2 ;
+streams[3].streamFormat.channelId  = 1 ;
+streams[3].streamFormat.flipRotate = 0 ;
+streams[3].streamFormat.width 	 = 640 ;
+streams[3].streamFormat.height	 = 480 ;
+streams[3].streamFormat.xOffset	 = 0 ;
+streams[3].streamFormat.yOffset	 = 0 ;
+streams[3].streamFormat.fps		 = 3 ;
+streams[3].streamFormat.keepAspRat = 1 ;
+
+streams[3].h264Conf.streamId		 = 3 ;
+streams[3].h264Conf.gopM			 = 1 ;
+streams[3].h264Conf.gopN			 = 30 ;
+streams[3].h264Conf.idrInterval	 = 1 ;
+streams[3].h264Conf.gopModel		 = 0 ;
+streams[3].h264Conf.profile		 = 0 ;
+streams[3].h264Conf.brcMode		 = 0 ;
+streams[3].h264Conf.cbrAvgBps 	 = 500000 ;
+streams[3].h264Conf.vbrMinbps 	 = 500000 ;
+streams[3].h264Conf.vbrMaxbps 	 = 1000000 ;
+streams[3].h264Conf.quality		 = 3 ;
+streams[3].h264Conf.qcon			 = 3 ;
+streams[3].h264Conf.qpMinI		 = 24 ;
+streams[3].h264Conf.qpMinP		 = 27 ;
+streams[3].h264Conf.qpIWeight 	 = 3 ;
+streams[3].h264Conf.qpPWeight 	 = 5 ;
+
+streams[3].mjpegConf.streamId 	 = 3 ;
+streams[3].mjpegConf.chromaFormat  = 1 ;
+streams[3].mjpegConf.quality		 = 50 ;
+gk_av.c:773(gk_video_set_mjpeg_param),gadi_venc_set_stream_format  return:0  
+gk_av.c:780(gk_video_set_mjpeg_param),gadi_venc_set_mjpeg_config  return:0  
+psMesgQBuf->dwMesgID = 0
+gk_video_open:392
+gk_av.c:408(gk_video_enable),before gadi_vi_enable(viHandle,1)
+gk_av.c:416(gk_video_enable),gadi_vi_enable(viHandle,1)  return:0  
+gk_image.c:285(gk_imaging_start),gadi_isp_load_param return:0 
+gk_image.c:294(gk_imaging_start),gadi_isp_start return:0 
+start stream[0]
+=======================================
+[GK]DE-MBLK 4x4 basing on 1/16 orig pic version: v2.1.0
+=======================================
+[   28.060000] delay mod0 ret 38
+[   28.060000] delay mod0 ret 41
+gk_av.c:1344(gk_video_start_all_encode_stream),gadi_venc_start_stream,streamid:0	return:0	
+start stream[1]
+Sending discover...
+gk_av.c:1344(gk_video_start_all_encode_stream),gadi_venc_start_stream,streamid:1	return:0	
+start stream[2]
+gk_av.c:1344(gk_video_start_all_encode_stream),gadi_venc_start_stream,streamid:2	return:0	
+start stream[3]
+psMesgQBuf->dwMesgID = 0
+gk_av.c:1344(gk_video_start_all_encode_stream),gadi_venc_start_stream,streamid:3	return:0	
+gk_av.c:1358(gk_video_start_all_encode_stream),gadi_isp_reset_3a_static	return:0	
+gk_video_start_all_encode_stream:1360
+day ... fps=0
+gk_image.c:1093(gk_image_ircut_switch),gadi_vi_set_slowshutter_mode(viHandle, 2, 15) return:0 
+day current fps= 15
+Sending discover...
+[   29.440000] fps is 15, support max shutter time is 34133333 curr shutter_time 20525920
+gk_image.c:1099(gk_image_ircut_s[   29.600000] delay mod0 ret 46
+witch),gadi_isp_[   29.600000] delay mod0 ret 50
+set_vi_frame(ispHandle, 15) return:0 
+gk_av.c:1407(gk_video_set_framerate),gadi_venc_set_framerate,frPar.streamId:0,frPar.fps:15 return:0	
+gk_video_set_framerate:1408
+gk_av.c:1407(gk_video_set_framerate),gadi_venc_set_framerate,frPar.streamId:1,frPar.fps:15 return:0	
+gk_video_set_framerate:1408
+gk_av.c:1407(gk_video_set_framerate),gadi_venc_set_framerate,frPar.streamId:2,frPar.fps:15 return:0	
+gk_video_set_framerate:1408
+psMesgQBuf->dwMesgID = 0
+Sending discover...
+stop stream[0]
+gk_av.c:1378(gk_video_stop_all_encode_stream),before gadi_venc_stop_stream,streamid:0
+gk_av.c:1385(gk_video_stop_all_encode_stream),gadi_venc_stop_stream,streamid:0	return:0	
+stop stream[1]
+gk_av.c:1378(gk_video_stop_all_encode_stream),before gadi_venc_stop_stream,streamid:1
+gk_av.c:1385(gk_video_stop_all_encode_stream),gadi_venc_stop_stream,streamid:1	return:0	
+stop stream[2]
+gk_av.c:1378(gk_video_stop_all_encode_stream),before gadi_venc_stop_stream,streamid:2
+Sending discover...
+gk_av.c:1385(gk_video_stop_all_encode_stream),gadi_venc_stop_stream,streamid:2	return:0	
+stop stream[3]
+gk_av.c:1378(gk_video_stop_all_encode_stream),before gadi_venc_stop_stream,streamid:3
+psMesgQBuf->dwMesgID = 0
+gk_av.c:1385(gk_video_stop_all_encode_stream),gadi_venc_stop_stream,streamid:3	return:0	
+gk_video_stop_all_encode_stream:1389
+gk_av.c:1289(gk_video_set_all_params),gadi_vi_enable(viHandle, 0)
+MCU controls motor 
+3CID=754XXXX, CustomerID=85,  SubType=10 
+ready to main loop!!!
+
+=====  Now AT24CXX used 255 Bytes=====
+dwGetWatchDogLiveTime1 = 20
+Play: /npc/sound/WifiLink_en/WaitLink_en.amr 
+create adec chn6 success
+fgAOEnable=0; fgEn=1
+Info: vAOControl,fgAIEnable=0 
+++++++++++++++create+++++++++++++++
+vAOControl enable
+dwSpeakVol = 185
+vSoundPlayProc  enter
+--- vVoiceLinkInit
+Sending discover...
+execl cmd 33 status=0
+>>fgWifiScan system scan ok moreTest=5
+/patch/bin/iwpriv wlan0 elian stop
+[   34.520000] [MSC] msc_cmd_handler stop 5
+wlan0     elian:ok
+/patch/bin/iwpriv wlan0 elian start
+[   34.600000] [MSC] msc_cmd_handler start 6
+[   34.610000] [MSC] Driver v 1.0.0
+[   34.610000] [MSC] get local address 82a82000 : 8:ea:40:e7:5e:92
+[   34.620000] [MSC] version: 1.1.3
+[   34.630000] [MSC] reset 0-->0, reason:0
+[   34.630000] [MSC] enter monitor mode: filter:0x0, chan_id:1, width:2, chan_flags:0x0, monitor_priv=  (null), priv=82a82000
+[   34.640000] [MSC] old iftype: 0x2
+[   34.640000] 80211> cfg80211_scan_done ==> NULL
+[   34.670000] [MSC] set chl, chan_id:1, width:2, chan_flags:0x0
+[   34.670000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   34.670000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   34.680000] 80211> cfg80211_scan_done ==> NULL
+wlan0     elian:ok
+[   34.740000] [MSC] msc_cmd_handler result 7
+[   34.740000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+sta = 0
+delay 3600 s to Send
+[   35.110000] [MSC] set chl, chan_id:1, width:2, chan_flags:0x0
+[   35.110000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   35.110000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   35.120000] 80211> cfg80211_scan_done ==> NULL
+Sending discover...
+[   35.550000] [MSC] set chl, chan_id:6, width:2, chan_flags:0x0
+[   35.550000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   35.550000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   35.560000] 80211> cfg80211_scan_done ==> NULL
+[   35.780000] [MSC] msc_cmd_handler result 7
+[   35.790000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+sta = 0
+[   35.990000] [MSC] set chl, chan_id:11, width:8, chan_flags:0x0
+[   35.990000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   35.990000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   36.000000] 80211> cfg80211_scan_done ==> NULL
+[   36.430000] [MSC] set chl, chan_id:2, width:2, chan_flags:0x0
+[   36.430000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   36.430000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   36.440000] 80211> cfg80211_scan_done ==> NULL
+[   36.840000] [MSC] msc_cmd_handler result 7
+[   36.840000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+sta = 0
+[   36.870000] [MSC] set chl, chan_id:5, width:2, chan_flags:0x0
+[   36.870000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   36.870000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   36.880000] 80211> cfg80211_scan_done ==> NULL
+Sending discover...
+[   37.310000] [MSC] set chl, chan_id:7, width:2, chan_flags:0x0
+[   37.310000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   37.310000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   37.330000] 80211> cfg80211_scan_done ==> NULL
+[   37.760000] [MSC] set chl, chan_id:1, width:2, chan_flags:0x0
+[   37.760000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   37.760000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   37.780000] 80211> cfg80211_scan_done ==> NULL
+[   37.890000] [MSC] msc_cmd_handler result 7
+[   37.900000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+sta = 0
+vSoundPlayProc  exit**
+[   38.210000] [MSC] set chl, chan_id:6, width:2, chan_flags:0x0
+[   38.210000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   38.210000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   38.230000] 80211> cfg80211_scan_done ==> NULL
+Sending discover...
+vAIControl enable
+>>emTMFSDKInit
+>>vioce link 111111
+[   38.670000] [MSC] set chl, chan_id:11, width:8, chan_flags:0x0
+[   38.670000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   38.670000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   38.690000] 80211> cfg80211_scan_done ==> NULL
+[   38.940000] [MSC] msc_cmd_handler result 7
+[   38.960000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+sta = 0
+fgAOEnable=1; fgEn=0
+-----------------destory---------------
+vAOControl disable 0
+Destroy adec chn6 success
+vCheckPlaySoundEnd
+[   39.120000] [MSC] set chl, chan_id:10, width:8, chan_flags:0x0
+[   39.120000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   39.120000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   39.140000] 80211> cfg80211_scan_done ==> NULL
+[   39.570000] [MSC] set chl, chan_id:12, width:8, chan_flags:0x0
+[   39.570000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   39.570000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   39.600000] 80211> cfg80211_scan_done ==> NULL
+[   40.010000] [MSC] msc_cmd_handler result 7
+Play: /npc/sound/di.pcm 
+create adec chn6 success
+fgAOEnable=0; fgEn=1
+Info[   40.030000] [MSC] set chl, chan_id:3, width:2, chan_flags:0x0
+: vAOControl,fgA[   40.030000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   40.030000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+IEnable=1 
+++++++++++++++create+++++++++++++++
+[   40.050000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+vAOControl enable
+dwSpeakVol = 185
+[   40.070000] 80211> cfg80211_scan_done ==> NULL
+sta = 0
+vSoundPlayProc  enter
+Sending discover...
+[   40.510000] [MSC] set chl, chan_id:1, width:2, chan_flags:0x0
+[   40.510000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   40.510000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   40.520000] 80211> cfg80211_scan_done ==> NULL
+execl cmd 33 status=0
+>>fgWifiScan system scan ok moreTest=5
+[   40.950000] [MSC] set chl, chan_id:6, width:2, chan_flags:0x0
+[   40.950000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   40.950000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   40.980000] 80211> cfg80211_scan_done ==> NULL
+[   41.140000] [MSC] msc_cmd_handler result 7
+[   41.160000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+sta = 0
+vSoundPlayProc  exit**
+Sending discover...
+[   41.410000] [MSC] set chl, chan_id:11, width:8, chan_flags:0x0
+[   41.410000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   41.410000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   41.440000] 80211> cfg80211_scan_done ==> NULL
+[   41.860000] [MSC] set chl, chan_id:8, width:8, chan_flags:0x0
+[   41.860000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   41.860000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   41.880000] 80211> cfg80211_scan_done ==> NULL
+fgAOEnable=1; fgEn=0
+-----------------destory---------------
+vAOControl disable 0
+Destroy adec chn6 success
+vCheckPlaySoundEnd
+[   42.220000] [MSC] msc_cmd_handler result 7
+[   42.240000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+sta = 0
+[   42.310000] [MSC] set chl, chan_id:13, width:8, chan_flags:0x0
+[   42.310000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   42.310000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   42.330000] 80211> cfg80211_scan_done ==> NULL
+[   42.750000] [MSC] set chl, chan_id:4, width:2, chan_flags:0x0
+[   42.750000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   42.750000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   42.780000] 80211> cfg80211_scan_done ==> NULL
+[   43.210000] [MSC] set chl, chan_id:9, width:8, chan_flags:0x0
+[   43.210000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   43.210000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   43.240000] 80211> cfg80211_scan_done ==> NULL
+Sending discover...
+[   43.320000] [MSC] msc_cmd_handler result 7
+[   43.340000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+sta = 0
+[   43.660000] [MSC] set chl, chan_id:1, width:2, chan_flags:0x0
+[   43.660000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   43.660000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   43.690000] 80211> cfg80211_scan_done ==> NULL
+Play: /npc/sound/di.pcm 
+create adec chn6 success
+fgAOEnable=0; fgEn=1
+Info: vAOControl,fgAIEnable=1 
+++++++++++++++create+++++++++++++++
+vAOControl enable
+dwSpeakVol = 185
+vSoundPlayProc  enter
+[   44.110000] [MSC] set chl, chan_id:6, width:2, chan_flags:0x0
+[   44.110000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   44.110000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   44.140000] 80211> cfg80211_scan_done ==> NULL
+[   44.390000] [MSC] msc_cmd_handler result 7
+Sending discover...
+[   44.410000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+sta = 0
+[   44.580000] [MSC] set chl, chan_id:11, width:8, chan_flags:0x0
+[   44.580000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   44.580000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   44.610000] 80211> cfg80211_scan_done ==> NULL
+[   45.030000] [MSC] set chl, chan_id:2, width:2, chan_flags:0x0
+[   45.030000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   45.030000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   45.060000] 80211> cfg80211_scan_done ==> NULL
+vSoundPlayProc  exit**
+[   45.460000] [MSC] msc_cmd_handler result 7
+[   45.460000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+sta = 0
+[   45.500000] [MSC] set chl, chan_id:5, width:2, chan_flags:0x0
+[   45.500000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   45.500000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   45.530000] 80211> cfg80211_scan_done ==> NULL
+[   45.950000] [MSC] set chl, chan_id:7, width:2, chan_flags:0x0
+[   45.950000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   45.950000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   45.980000] 80211> cfg80211_scan_done ==> NULL
+fgAOEnable=1; fgEn=0
+-----------------destory---------------
+vAOControl disable 0
+Destroy adec chn6 success
+vCheckPlaySoundEnd
+Sending discover...
+[   46.410000] [MSC] set chl, chan_id:1, width:2, chan_flags:0x0
+[   46.410000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   46.410000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   46.440000] 80211> cfg80211_scan_done ==> NULL
+[   46.520000] [MSC] msc_cmd_handler result 7
+[   46.530000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+sta = 0
+[   46.860000] [MSC] set chl, chan_id:6, width:2, chan_flags:0x0
+[   46.860000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   46.860000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   46.890000] 80211> cfg80211_scan_done ==> NULL
+[   47.340000] [MSC] set chl, chan_id:11, width:8, chan_flags:0x0
+[   47.340000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   47.340000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   47.360000] 80211> cfg80211_scan_done ==> NULL
+Sending discover...
+[   47.600000] [MSC] msc_cmd_handler result 7
+[   47.620000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+sta = 0
+[   47.790000] [MSC] set chl, chan_id:10, width:8, chan_flags:0x0
+[   47.790000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   47.790000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   47.820000] 80211> cfg80211_scan_done ==> NULL
+Play: /npc/sound/di.pcm 
+create adec chn6 success
+fgAOEnable=0; fgEn=1
+Info: vAOControl,fgAIEnable=1 
+++++++++++++++create+++++++++++++++
+vAOControl enable
+dwSpeakVol = 185
+vSoundPlayProc  enter
+[   48.240000] [MSC] set chl, chan_id:12, width:8, chan_flags:0x0
+[   48.240000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   48.240000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   48.250000] 80211> cfg80211_scan_done ==> NULL
+[   48.670000] [MSC] msc_cmd_handler result 7
+[   48.680000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+[   48.690000] [MSC] set chl, chan_id:3, width:2, chan_flags:0x0
+sta = 0
+[   48.710000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   48.710000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   48.740000] 80211> cfg80211_scan_done ==> NULL
+[   49.160000] [MSC] set chl, chan_id:1, width:2, chan_flags:0x0
+[   49.160000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   49.160000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   49.190000] 80211> cfg80211_scan_done ==> NULL
+vSoundPlayProc  exit**
+Sending discover...
+[   49.630000] [MSC] set chl, chan_id:6, width:2, chan_flags:0x0
+[   49.630000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   49.630000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 1
+[   49.660000] 80211> cfg80211_scan_done ==> NULL
+[   49.750000] [MSC] msc_cmd_handler result 7
+[   49.750000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+sta = 0
+fgAOEnable=1; fgEn=0
+-----------------destory---------------
+vAOControl disable 0
+Destroy adec chn6 success
+vCheckPlaySoundEnd
+[   50.080000] [MSC] set chl, chan_id:11, width:8, chan_flags:0x0
+[   50.080000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   50.080000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   50.110000] 80211> cfg80211_scan_done ==> NULL
+Sending discover...
+[   50.540000] [MSC] set chl, chan_id:8, width:8, chan_flags:0x0
+[   50.540000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   50.540000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   50.570000] 80211> cfg80211_scan_done ==> NULL
+[   50.830000] [MSC] msc_cmd_handler result 7
+[   50.850000] [MSC] AM=0, ssid=, pwd=, user=, cust_data_len=0, cust_data=,
+sta = 0
+[   51.000000] [MSC] set chl, chan_id:13, width:8, chan_flags:0x0
+[   51.000000] pAd->CommonCfg.RegTransmitSetting.field.BW = 1
+[   51.000000] ,pAd->CommonCfg.RegTransmitSetting.field.EXTCHA = 3
+[   51.030000] 80211> cfg80211_scan_done ==> NULL

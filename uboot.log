@@ -1,0 +1,175 @@
+console init done
+
+
+U-Boot 2012.10 (Sep 29 2006 - 00:20:41) for GK7102 rb jxh42 v1.00 (GOKE)
+
+HAL:  20151223 
+DRAM:  64 MiB
+Flash: support 4X mode read:0xe520f1ff
+16 MiB
+16 MiB
+NAND:  SPINAND MID = 0xff, DID = 0xffff, Data = 0x1ffffff !spinand_board_init[1581]: No support this SPI nand!
+SF: Detected MX25L12845 with page size 256 B, sector size 64 KiB, total size 16 MiB
+In:    serial
+Out:   serial
+Err:   serial
+Net:   arm_freq(600MHz)..............0x112032
+use int MII..............
+gk7101
+Hit any key to stop autoboot:  1  0
+Gwell7102 # 
+Gwell7102 # 
+Gwell7102 # 
+Gwell7102 # 
+
+
+
+Gwell7102 # help
+[PROCESS_SEPARATORS] help
+?       - alias for 'help'
+base    - print or set address offset
+bdinfo  - print Board Info structure
+boot    - boot default, i.e., run 'bootcmd'
+bootd   - boot default, i.e., run 'bootcmd'
+bootelf - Boot from an ELF image in memory
+bootm   - boot application image from memory
+bootp   - boot image via network using BOOTP/TFTP protocol
+bootvx  - Boot vxWorks from an ELF image
+bootz   - boot Linux zImage image from memory
+cmp     - memory compare
+coninfo - print console devices and information
+cp      - memory copy
+crc32   - checksum calculation
+dhcp    - boot image via network using DHCP/TFTP protocol
+echo    - echo args to console
+editenv - edit environment variable
+env     - environment handling commands
+erase   - erase FLASH memory
+flinfo  - print FLASH memory information
+go      - start application at address 'addr'
+help    - print command description/usage
+iminfo  - print header information for application image
+imls    - list all images found in flash
+imxtract- extract a part of a multi-image
+itest   - return true/false on integer compare
+loadb   - load binary file over serial line (kermit mode)
+loads   - load S-Record file over serial line
+loady   - load binary file over serial line (ymodem mode)
+loop    - infinite loop on address range
+md      - memory display
+mm      - memory modify (auto-incrementing address)
+mtest   - simple RAM read/write test
+mw      - memory write (fill)
+nfs     - boot image via network using NFS protocol
+nm      - memory modify (constant address)
+ping    - send ICMP ECHO_REQUEST to network host
+printenv- print environment variables
+protect - enable or disable FLASH write protection
+reset   - Perform RESET of the CPU
+run     - run commands in an environment variable
+saveenv - save environment variables to persistent storage
+setenv  - set environment variables
+sf      - SPI flash sub-system
+sleep   - delay execution for some time
+snand   - SpiNAND sub-system
+source  - run script from memory
+tftpboot- boot image via network using TFTP protocol
+version - print monitor, compiler and linker version
+
+
+
+
+
+Gwell7102 # bdinfo
+[PROCESS_SEPARATORS] bdinfo
+arch_number = 0x00000F94
+boot_params = 0xC0000100
+DRAM bank   = 0x00000000
+-> start    = 0xC0000000
+-> size     = 0x04000000
+ethaddr     = 3C:97:0E:XX:XX:XX
+ip_addr     = 192.168.1.229
+baudrate    = 115200 bps
+relocaddr   = 0xC0800000
+reloc off   = 0x00000000
+irq_sp      = 0xC3F3FF68
+sp start    = 0xC3F3FF58
+FB base     = 0x00000000
+
+
+
+Gwell7102 # flinfo
+[PROCESS_SEPARATORS] flinfo
+
+Bank # 1: flash_print_info()
+
+
+
+Gwell7102 # coninfo
+[PROCESS_SEPARATORS] coninfo
+List of available devices:
+serial   80000003 SIO stdin stdout stderr 
+
+
+
+Gwell7102 # version
+[PROCESS_SEPARATORS] version
+
+U-Boot 2012.10 (Sep 29 2006 - 00:20:41) for GK7102 rb jxh42 v1.00 (GOKE)
+arm-goke-linux-uclibcgnueabi-gcc (crosstool-NG 1.18.0) 4.6.1
+GNU ld (crosstool-NG 1.18.0) 2.21.1
+
+
+
+Gwell7102 # printenv
+[PROCESS_SEPARATORS] printenv
+arm_freq=0x00112032
+baudrate=115200
+bootargs=console=ttySGK0,115200 noinitrd mem=38M root=/dev/mtdblock3 rootfstype=squashfs mtdparts=gk7101_flash:256K(boot),64K(bootenv),2560K(kernel),7168K(rootfs),1024K(rom),5312K(APP) phytype=0
+bootcmd=run sfboot
+bootdelay=1
+bootfile=zImage
+bsbsize=2M
+consoledev=ttySGK0
+ethact=gk7101
+ethaddr=3C:97:0E:XX:XX:XX
+fileaddr=C1000000
+filesize=3AC000
+gatewayip=192.168.1.1
+hostname="gk7101"
+ipaddr=192.168.1.229
+loadaddr=0xC1000000
+mem=35M
+mtdparts=gk7101_flash:256K(boot),64K(bootenv),2M(kernel),7M(rootfs),1M(rom),5824K(APP)
+netdev=eth0
+netmask=255.255.255.0
+nfsserver=11.1.4.19
+phytype=0
+rootfstype=mtdparts=gk7101_flash:256K(boot),64K(bootenv),2560K(kernel),7168K(rootfs),1024K(rom),5312K(APP) rootfstype=squashfs root=/dev/mtdblock3
+rootpath=/home/star/nfs/gk/rootfs_uClibc_v112/
+serverip=192.168.1.225
+sfboot=setenv bootargs console=${consoledev},${baudrate} noinitrd mem=${mem} rw ${rootfstype} init=linuxrc ip=${ipaddr}:${serverip}:${gatewayip}:${netmask}:${hostname}:${netdev} mac=${ethaddr} phytype=${phytype};sf probe 0 0;sf read ${loadaddr} ${sfkernel} ${filesize}; bootm
+sfkernel=0x50000
+soctype=1
+stderr=serial
+stdin=serial
+stdout=serial
+tftpboot=setenv bootargs root=/dev/nfs nfsroot=${nfsserver}:${rootpath},proto=tcp,nfsvers=3,nolock ip=${ipaddr}:${serverip}:${gatewayip}:${netmask}:${hostname}:${netdev} mac=${ethaddr} phytype=${phytype} console=${consoledev},${baudrate} mem=${mem};tftpboot ${bootfile};bootm
+
+Environment size: 1524/65532 bytes
+
+
+
+Gwell7102 # base
+[PROCESS_SEPARATORS] base
+Base Address: 0x00000000
+
+
+
+Gwell7102 # iminfo
+[PROCESS_SEPARATORS] iminfo
+
+## Checking Image at c1000000 ...
+Unknown image format!
+
+
