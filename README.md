@@ -24,13 +24,31 @@ Here's an alternative way of using this thing.
 
 ### Persistent Root
 
-*Work in progress*.
+Note that all configs in `/etc` are mounted from ramdisk, so they are not persistent.
 
-Since all the configs are loaded from ramdisk, we can't just change them, they are lost on the next reboot.
+Persistent root has to be achieved via other partitions, luckily there is a relevant file that is called by the inittab.
+
+Edit `/npc/boot.sh` and add `/bin/busybox telnetd` to the top of the file.
 
 ### Wireless Network Configuration
 
-*Work in progress*
+Running on an unauthenticated wireless network isn't very smart.
+
+After setting up your network, create a new file `/rom/wpa_supplicant.conf` to match your network configuration, e.g.:
+
+```
+ctrl_interface=/etc/Wireless
+network={
+    ssid="YOURSSID"
+    psk="YOURPSK"
+}
+```
+
+Then hook it into `/npc/boot.sh`, add the line:
+
+```
+cp /rom/wpa_supplicant.conf /mnt/ramdisk/wpa_supplicant0.conf
+```
 
 ### Stream Access
 
